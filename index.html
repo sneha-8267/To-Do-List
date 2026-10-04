@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My To-Do List</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1 class="app__title">My To-Do List &#127872;</h1>
+    <p class="app__summary" id="summary"></p>
+
+    <form class="task-form" id="task-form">
+      <input
+        class="task-form__input"
+        id="task-input"
+        type="text"
+        placeholder="Add a cute little task..."
+        maxlength="120"
+        autocomplete="off"
+        aria-label="New task"
+      >
+      <button class="btn btn--primary" type="submit">Add &#10024;</button>
+    </form>
+
+
+    <ul class="task-list" id="task-list"></ul>
+    <p class="app__empty" id="empty-message"></p>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

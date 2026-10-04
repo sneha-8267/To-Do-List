@@ -1,0 +1,198 @@
+:root {
+  --bg-light: #ffe3ee;
+  --bg-dark: #ffc9dd;
+  --card: #fffafc;
+  --text: #6b2c4a;
+  --text-muted: #b0728f;
+  --border: #ffd3e3;
+  --soft: #ffeef5;
+  --accent: #ff6fa5;
+  --accent-dark: #e8508d;
+  --white: #ffffff;
+  --done: #d3a5ba;
+  --focus: #ffb703;
+}
+
+/* 2. Base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 40px 16px;
+  display: flex;
+  justify-content: center;
+  color: var(--text);
+  font-family: "Quicksand", "Segoe UI", system-ui, Arial, sans-serif;
+
+  /* pink gradient with polka dots */
+  background-color: var(--bg-light);
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.75) 3px, transparent 4px),
+    radial-gradient(rgba(255, 255, 255, 0.5) 2px, transparent 3px),
+    linear-gradient(160deg, var(--bg-light), var(--bg-dark));
+  background-size: 46px 46px, 46px 46px, 100% 100%;
+  background-position: 0 0, 23px 23px, 0 0;
+  background-attachment: fixed;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* 3. Layout */
+.app {
+  width: 100%;
+  max-width: 480px;
+  align-self: flex-start;
+  padding: 28px 24px;
+  background: var(--card);
+  border: 3px solid var(--accent);
+  border-radius: 28px;
+  box-shadow: 0 10px 0 var(--accent), 0 20px 40px rgba(232, 80, 141, 0.25);
+}
+
+.app__title {
+  margin: 0 0 4px;
+  text-align: center;
+  font-family: "Pacifico", "Brush Script MT", cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--accent-dark);
+}
+
+.app__summary {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.app__empty {
+  padding: 20px 0 6px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* 4. Form */
+.task-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.task-form__input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 16px;
+  color: var(--text);
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 999px;
+}
+
+.task-form__input::placeholder {
+  color: #d9a3bb;
+}
+
+.task-form__input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 111, 165, 0.18);
+}
+
+.btn--primary {
+  padding: 0 20px;
+  color: var(--white);
+  font-weight: 700;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 0 var(--accent-dark);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.btn--primary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--accent-dark);
+}
+
+/* 5. Tasks */
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  padding: 12px 14px;
+  background: var(--soft);
+  border-radius: 16px;
+}
+
+.task__checkbox {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.task__text {
+  flex: 1;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.task__delete {
+  padding: 4px 8px;
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  border-radius: 50%;
+}
+
+.task__delete:hover {
+  color: var(--white);
+  background: var(--accent);
+}
+
+.task.is-done .task__text {
+  color: var(--done);
+  text-decoration: line-through;
+}
+
+.task.is-done::after {
+  content: "\2665";
+  order: 2;
+  color: var(--accent);
+}
+
+.task.is-done .task__delete {
+  order: 3;
+}
+
+/* 6. Helpers */
+[hidden] {
+  display: none !important;
+}
